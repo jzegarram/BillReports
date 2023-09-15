@@ -16,11 +16,7 @@ public class BillReports {
     public static void main(String[] args) {
         // TODO code application logic here
         // comment 1
-<<<<<<< HEAD
         //shamir correlon
-=======
-        // Shamir regalon
->>>>>>> 092bcb282411b03b9d95d581b2b98ff2034b7816
     }
     
 }
