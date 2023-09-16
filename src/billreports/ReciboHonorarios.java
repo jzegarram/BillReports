@@ -12,28 +12,26 @@ import java.util.Date;
  */
 public class ReciboHonorarios extends Recibo {
         
+    private final double porcentaje=0.1;
     private double impuesto;
     
     public ReciboHonorarios(String _emisor, Date _fecha, double _monto, String _clienteName) {
         super(_emisor, _fecha, _monto, _clienteName);
-        this.impuesto = 0;
+        setImpuesto(_monto);
+        setNeto(_monto);
     }
-    
+  
     public double getImpuesto() {
         return impuesto;
     }
-
-    public void setImpuesto(double impuesto) {
-        this.impuesto = impuesto;
-    }
     
-    public void calcularImpuesto(double porcentaje) {
-        setImpuesto(getMonto() * porcentaje);
+    public void setImpuesto(double monto) {
+        this.impuesto = monto*porcentaje;
     }
     
     @Override
-    public void calcularNeto() {
-        setNeto(getMonto() - getImpuesto());
+    public double calcularNeto(double monto) {
+        return (monto - impuesto);
     }
     
     @Override
@@ -56,5 +54,7 @@ public class ReciboHonorarios extends Recibo {
 
         return receipt.toString();
     }
+
+    
     
 }
