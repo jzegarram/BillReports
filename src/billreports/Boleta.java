@@ -14,11 +14,12 @@ public class Boleta extends Recibo {
 
     public Boleta(String _emisor, Date _fecha, double _monto, String _clienteName) {
         super(_emisor, _fecha, _monto, _clienteName);
+        setNeto(_monto);
     }
           
     @Override
-    public void calcularNeto() {
-        setNeto(getMonto());
+    public double calcularNeto(double monto) {
+        return(monto);
     }
     
     @Override
