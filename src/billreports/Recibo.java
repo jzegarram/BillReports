@@ -10,7 +10,7 @@ import java.util.Date;
  *
  * @author jzegarram
  */
-public class Recibo {
+public abstract class Recibo {
     private String emisor;
     private Date fecha;
     private double monto;
@@ -45,7 +45,7 @@ public class Recibo {
         return monto;
     }
 
-    public void setMonto(float monto) {
+    public void setMonto(double monto) {
         this.monto = monto;
     }
 
@@ -53,8 +53,8 @@ public class Recibo {
         return neto;
     }
 
-    public void setNeto(double neto) {
-        this.neto = neto;
+    public void setNeto(double monto) {
+        this.neto = calcularNeto(monto);
     }
 
     public String getClienteName() {
@@ -65,6 +65,6 @@ public class Recibo {
         this.clienteName = clienteName;
     }
     
-    public void calcularNeto() {};
+    public abstract double calcularNeto(double monto);
     
 }
