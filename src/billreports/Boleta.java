@@ -4,14 +4,41 @@
  */
 package billreports;
 
+import java.util.Date;
+
 /**
  *
  * @author jzegarram
  */
 public class Boleta extends Recibo {
+
+    public Boleta(String emisor, Date fecha, double monto, String clienteName) {
+        super(emisor, fecha, monto, clienteName);
+    }
+          
+    @Override
+    public void calcularTotalNeto() {
+        setNeto(getMonto());
+    }
     
-    public Boleta(String emisor, String fecha, float montoBruto) {
-        super(emisor, fecha, montoBruto);
+    @Override
+    public String toString() {
+        
+        StringBuilder receipt = new StringBuilder();
+
+        receipt.append("**************************\n");
+        receipt.append("          BOLETA          \n");
+        receipt.append("**************************\n");
+        receipt.append("Emisor: ").append(getEmisor()).append("\n");
+        receipt.append("--------------------------\n");
+        receipt.append("Fecha: ").append(getFecha()).append("\n");
+        receipt.append("Cliente: ").append(getClienteName()).append("\n");
+        receipt.append("--------------------------\n");
+        receipt.append("Monto: $").append(String.format("%.2f", getMonto())).append("\n");
+        receipt.append("Neto: $").append(String.format("%.2f", getNeto())).append("\n");
+        receipt.append("**************************\n");
+
+        return receipt.toString();
     }
     
 }

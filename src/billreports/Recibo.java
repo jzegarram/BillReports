@@ -4,20 +4,25 @@
  */
 package billreports;
 
+import java.util.Date;
+
 /**
  *
  * @author jzegarram
  */
-public class Recibo implements IRecibo {
+public class Recibo {
     private String emisor;
-    private String fecha;
-    private float montoBruto;
-    
-    public Recibo(String emisor, String fecha,  float montoBruto ){
+    private Date fecha;
+    private double monto;
+    private double neto;
+    private String clienteName;
+
+    public Recibo(String emisor, Date fecha,  double monto, String clienteName ){
         this.emisor = emisor;
-        this.montoBruto = montoBruto;
         this.fecha = fecha;
-        
+        this.monto = monto;
+        this.clienteName = clienteName;
+        this.neto = 0;
     }
 
     public String getEmisor() {
@@ -28,32 +33,38 @@ public class Recibo implements IRecibo {
         this.emisor = emisor;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
-    public float getMontoBruto() {
-        return montoBruto;
+    public double getMonto() {
+        return monto;
     }
 
-    public void setMontoBruto(float montoBruto) {
-        this.montoBruto = montoBruto;
+    public void setMonto(float monto) {
+        this.monto = monto;
     }
 
-    @Override
-    public float calcularImpuesto() {
-        return 0;
+    public double getNeto() {
+        return neto;
+    }
+
+    public void setNeto(double neto) {
+        this.neto = neto;
+    }
+
+    public String getClienteName() {
+        return clienteName;
+    }
+
+    public void setClienteName(String clienteName) {
+        this.clienteName = clienteName;
     }
     
-    
-    @Override
-    public float calcularMontoNeto(){
-        return this.montoBruto + this.calcularImpuesto();
-    }
-    
+    public void calcularTotalNeto() {};
     
 }
