@@ -15,8 +15,8 @@ public class Empresa {
     private List<Recibo> recibos;
     private int index ;
 
-    public Empresa(String nombre) {
-        this.nombre = nombre;
+    public Empresa(String _nombre) {
+        this.nombre = _nombre;
         this.recibos = new ArrayList<>();
         this.index = 0;
     }
@@ -27,26 +27,26 @@ public class Empresa {
                 recibos.add(new Factura(nombre, fecha, monto, clienteName));
                 Recibo factura = recibos.get(index);
                 ((Factura) factura).calcularImpuesto(0.19);
-                factura.calcularTotalNeto();
+                factura.calcularNeto();
                 System.out.println(factura.toString());
                 break;
 
             case 2:
                 recibos.add(new Boleta(nombre, fecha, monto, clienteName));
                 Recibo boleta = recibos.get(index);
-                boleta.calcularTotalNeto();
+                boleta.calcularNeto();
                 System.out.println(boleta.toString());
                 break;
             case 3:
                 recibos.add(new ReciboHonorarios(nombre, fecha, monto, clienteName));
                 Recibo rrhh = recibos.get(index);
                 ((ReciboHonorarios) rrhh).calcularImpuesto(0.1);
-                rrhh.calcularTotalNeto();
+                rrhh.calcularNeto();
                 System.out.println(rrhh.toString());
                 break;
         }
 
-        recibos.get(index).calcularTotalNeto();
+        recibos.get(index).calcularNeto();
         index++;
     }
 

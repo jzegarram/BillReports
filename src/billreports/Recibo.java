@@ -17,11 +17,11 @@ public class Recibo {
     private double neto;
     private String clienteName;
 
-    public Recibo(String emisor, Date fecha,  double monto, String clienteName ){
-        this.emisor = emisor;
-        this.fecha = fecha;
-        this.monto = monto;
-        this.clienteName = clienteName;
+    public Recibo(String _emisor, Date _fecha,  double _monto, String _clienteName ){
+        this.emisor = _emisor;
+        this.fecha = _fecha;
+        this.monto = _monto;
+        this.clienteName = _clienteName;
         this.neto = 0;
     }
 
@@ -65,6 +65,6 @@ public class Recibo {
         this.clienteName = clienteName;
     }
     
-    public void calcularTotalNeto() {};
+    public void calcularNeto() {};
     
 }

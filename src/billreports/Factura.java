@@ -14,8 +14,8 @@ public class Factura extends Recibo {
     
     private double impuesto;
     
-    public Factura(String emisor, Date fecha, double monto, String clienteName) {
-        super(emisor, fecha, monto, clienteName);
+    public Factura(String _emisor, Date _fecha, double _monto, String _clienteName) {
+        super(_emisor, _fecha, _monto, _clienteName);
         this.impuesto = 0;
     }
 
@@ -32,7 +32,7 @@ public class Factura extends Recibo {
     }
     
     @Override
-    public void calcularTotalNeto() {
+    public void calcularNeto() {
         setNeto(getMonto() - getImpuesto());
     }
     

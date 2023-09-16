@@ -12,12 +12,12 @@ import java.util.Date;
  */
 public class Boleta extends Recibo {
 
-    public Boleta(String emisor, Date fecha, double monto, String clienteName) {
-        super(emisor, fecha, monto, clienteName);
+    public Boleta(String _emisor, Date _fecha, double _monto, String _clienteName) {
+        super(_emisor, _fecha, _monto, _clienteName);
     }
           
     @Override
-    public void calcularTotalNeto() {
+    public void calcularNeto() {
         setNeto(getMonto());
     }
     
