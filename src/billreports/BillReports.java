@@ -25,14 +25,14 @@ public class BillReports {
         Empresa osbornCorp = new Empresa("Osborn Corp");
 
         while (true) {
-            System.out.println("===== Sistema de Gestión de Osborn Corp =====");
+            System.out.println("===== Sistema de Gestion de Osborn Corp =====");
             System.out.println("1. Ver recibos");
-            System.out.println("2. Añadir Recibo");
+            System.out.println("2. Anadir Recibo");
             System.out.println("3. Calcular total bruto");
             System.out.println("4. Calcular total impuesto");
             System.out.println("5. Calcular total neto");
             System.out.println("0. Salir");
-            System.out.print("Ingrese su elección: ");
+            System.out.print("Ingrese su eleccion: ");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -77,19 +77,20 @@ public class BillReports {
                     }
 
                     osbornCorp.agregarRecibo(today, monto, clienteName, tipo);
-                    System.out.println("Recibo añadido con éxito!");
+                    System.out.println("Recibo anadido con exito!");
+                    break;
 
 
                 case 3:
-                    System.out.println("Total bruto: " + osbornCorp.calcularTotalBruto());
+                    System.out.println("Total bruto: " + String.format("%.2f",osbornCorp.calcularTotalBruto()));
                     break;
 
                 case 4:
-                    System.out.println("Total impuesto: " + osbornCorp.calcularTotalImpuesto());
+                    System.out.println("Total impuesto: " + String.format("%.2f",osbornCorp.calcularTotalImpuesto()));
                     break;
 
                 case 5:
-                    System.out.println("Total neto: " + osbornCorp.calcularTotalNeto());
+                    System.out.println("Total neto: " + String.format("%.2f",osbornCorp.calcularTotalNeto()));
                     break;
 
                 case 0:
