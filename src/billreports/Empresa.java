@@ -13,41 +13,35 @@ import java.util.List;
 public class Empresa {
     private String nombre;
     private List<Recibo> recibos;
-    private int index ;
+    private int nRecibos ;
 
     public Empresa(String _nombre) {
         this.nombre = _nombre;
         this.recibos = new ArrayList<>();
-        this.index = 0;
+        this.nRecibos= 0;
     }
     
     public void agregarRecibo(Date fecha, double monto, String clienteName, int tipo) {        
         switch (tipo) {
             case 1:
-                recibos.add(new Factura(nombre, fecha, monto, clienteName));
-                Recibo factura = recibos.get(index);
-                ((Factura) factura).calcularImpuesto(0.19);
-                factura.calcularNeto();
+                Recibo factura=new Factura(nombre, fecha, monto, clienteName) ;
+                recibos.add(factura);
                 System.out.println(factura.toString());
                 break;
 
             case 2:
-                recibos.add(new Boleta(nombre, fecha, monto, clienteName));
-                Recibo boleta = recibos.get(index);
-                boleta.calcularNeto();
+                Recibo boleta = new Boleta(nombre, fecha, monto, clienteName);
+                recibos.add(boleta);
                 System.out.println(boleta.toString());
                 break;
             case 3:
-                recibos.add(new ReciboHonorarios(nombre, fecha, monto, clienteName));
-                Recibo rrhh = recibos.get(index);
-                ((ReciboHonorarios) rrhh).calcularImpuesto(0.1);
-                rrhh.calcularNeto();
+                Recibo rrhh =new ReciboHonorarios(nombre, fecha, monto, clienteName);
+                recibos.add(rrhh);
                 System.out.println(rrhh.toString());
                 break;
         }
-
-        recibos.get(index).calcularNeto();
-        index++;
+        
+        nRecibos++;
     }
 
     public double calcularTotalBruto() {
@@ -82,7 +76,7 @@ public class Empresa {
     public void listarRecibos() {
     
         if(recibos.isEmpty()) {
-            System.out.println("No cuenta con recibos aún");
+            System.out.println("No cuenta con recibos aun");
         } else {
             System.out.println("Listado de recibos:");
             for (int i = 0; i < recibos.size(); i++) {
